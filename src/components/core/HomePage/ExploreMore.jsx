@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import HighlightText from './HighlightText';
 import { HomePageExplore } from '../../../data/homepage-explore';
+import CourseCard from './CourseCard';
 
 const tabsName = [
     "Free",
@@ -24,7 +25,7 @@ const ExploreMore = () => {
 
   return (
     <div>
-        <div className='text-4xl font-semibold text-center'>
+        <div className='text-4xl font-semibold text-center text-white'>
             Unlock the
             <HighlightText text={"Power of Code"}/>
         </div>
@@ -49,7 +50,23 @@ const ExploreMore = () => {
             }
         </div>
 
-        <div></div>
+        <div className='lg:h-[100px]'></div>
+        
+        <div>
+            {
+                courses.map((element, index) => {
+                    return(
+                        <CourseCard
+                            key={index}
+                            cardData = {element}
+                            currentCard = {currentCard}
+                            setCurrentCard = {setCurrentCard}
+
+                        />
+                    )
+                })
+            }
+        </div>
     </div>
   )
 }
