@@ -9,9 +9,9 @@ const paymentRoutes = require("./routes/Payment");
 
 const dotenv = require("dotenv");
 const cors = require("cors");
-const {cloudinaryConnect} = require("./config/cloundinary");
+const {cloudinaryConnect} = require("./config/cloundinary.js");
 const cookieParser = require("cookie-parser");
-const database = require("./config/database")
+const database = require("./config/database.js")
 const fileUpload = require("express-fileUpload");
 
 dotenv.config();

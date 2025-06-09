@@ -9,10 +9,12 @@ import Timeline from '../components/core/HomePage/Timeline'
 import LearningLanguage from '../components/core/HomePage/LearningLanguage'
 import InstructorSection from '../components/core/HomePage/InstructorSection'
 import ExploreMore from '../components/core/HomePage/ExploreMore'
+import Navbar from '../components/common/Navbar'
 
 const Home = () => {
   return (
     <div>
+
         {/* Section 1 */}
         <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center justify-center text-white'>
             <Link to={"/signup"}>
@@ -45,9 +47,9 @@ const Home = () => {
                 </CTAButton>
             </div>
 
-            <div className='mx-3 my-12 drop-shadow-md shadow-richblack-25'>
-                <video muted loop autoPlay>
-                    <source src={Banner} type='video/mp4'
+            <div className='mx-3 my-12'>
+                <video muted loop autoPlay className='shadow-lg shadow-blue-100'>
+                    <source src={Banner} type='video/mp4' 
                         height={515} width={1035}
                     />
                 </video>

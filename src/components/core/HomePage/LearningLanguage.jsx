@@ -26,10 +26,10 @@ const LearningLanguage = () => {
                     className='object-contain -mr-24'
                 />
                 <img src={compare_with_others} alt='Comapre with others'
-                    className='object-contain'
+                    className='object-contain -mr-36'
                 />
                 <img src={plan_your_lesson} alt='Plan your lessons'
-                    className='object-contain mr-24'
+                    className='object-contain'
                 />
             </div>
 
