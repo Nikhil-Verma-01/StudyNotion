@@ -10,6 +10,7 @@ import LearningLanguage from '../components/core/HomePage/LearningLanguage'
 import InstructorSection from '../components/core/HomePage/InstructorSection'
 import ExploreMore from '../components/core/HomePage/ExploreMore'
 import Navbar from '../components/common/Navbar'
+import Footer from '../components/common/Footer'
 
 const Home = () => {
   return (
@@ -199,6 +200,7 @@ const Home = () => {
 
 
         {/* Footer */}
+        <Footer/>
 
 
     </div>
