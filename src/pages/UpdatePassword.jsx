@@ -31,17 +31,21 @@ const UpdatePassword = () => {
     }
 
   return (
-    <div>
+    <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
         {
             loading ? (
                 <div className='spinner'></div>
             ) : (
                 <div className='max-w-[500] p-4 lg:p-8'>
-                    <h1>Choose new Password</h1>
-                    <p>Almost done. Enter ypur new password and youre all set.</p>
+                    <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5'>Choose new Password</h1>
+                    <p className='my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100'>
+                        Almost done. Enter your new password and youre all set.
+                    </p>
                     <form onSubmit={handleOnSubmit}>
                         <label className='relative'>
-                            <p>New Password<sup className='text-pink-200'>*</sup></p>
+                            <p className='mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5'>
+                                New Password<sup className='text-pink-200'>*</sup>
+                            </p>
                             <input
                                 required
                                 type={showPassword ? "text" : "password"}
@@ -56,14 +60,16 @@ const UpdatePassword = () => {
                                 {showPassword ? (
                                     <AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>
                                 ): (
-                                    <AiOutlineEye fontSize={24}/>
+                                    <AiOutlineEye fontSize={24} fill='#AFB2BF' />
                                 )}
                             </span>
                             
                         </label>
 
-                        <label className='relative'>
-                            <p>New Password<sup className='text-pink-200'>*</sup></p>
+                        <label className='relative mt-3 block'>
+                            <p className='mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5'>
+                                Confirm New Password<sup className='text-pink-200'>*</sup>
+                            </p>
                             <input
                                 required
                                 type={showConfirmPassword ? "text" : "password"}
@@ -93,7 +99,7 @@ const UpdatePassword = () => {
 
                     <div className='mt-6 flex items-center justify-between'>
                         <Link to='/login'>
-                            <p>
+                            <p className='flex items-center gap-x-2 text-richblack-5'>
                                 <BiArrowBack/> Back To Login
                             </p>
                         </Link>
