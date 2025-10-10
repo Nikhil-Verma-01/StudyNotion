@@ -126,7 +126,7 @@ exports.verifySignature = async (req, res) => {
             console.log(enrolledCourse);
 
             //find the student and add the course to their list enrolled courses
-            const enrolledStudent = await user.findOneAndUpdate(
+            const enrolledStudent = await User.findOneAndUpdate(
                 {_id: userId},
                 {$push: {course: courseId}},
                 {new: true},

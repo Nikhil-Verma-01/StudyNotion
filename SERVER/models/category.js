@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const categorySchema = new mongoose.Schema({
     name:{
         type:String,
+        required: true,
     },
     description:{
         type:String,
@@ -16,4 +17,4 @@ const categorySchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("Tag", categorySchema);
+module.exports = mongoose.model("Category", categorySchema);

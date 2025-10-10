@@ -6,13 +6,14 @@ const User = require("../models/User");
 exports.auth = async (req, res) => {
     try {
         //extact token
-        const token = req.cookies.token || req.body.token || re.header("Authorisation").replace("Bearer", "");
+        const token = req.cookies.token || req.body.token || req.header("Authorisation").replace("Bearer", "");
+        console.log("After Token Extractions");
         //token is missing 
         if(!token) {
             return res.status(401).json({
                 success: false,
                 message: "Token is missing"
-            })
+            });
         }
 
         //verify the token
@@ -27,6 +28,7 @@ exports.auth = async (req, res) => {
                 message:"Token is invalid"
             })
         }
+        next();
 
     } catch (error) {
         return res.status(401).json({

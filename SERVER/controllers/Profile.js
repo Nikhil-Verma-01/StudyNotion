@@ -46,19 +46,27 @@ exports.updateProfile = async (req, res) => {
 //Explore -> how can we schedule this deletion operations
 exports.deleteAccount = async (req, res) => {
     try {
+        console.log("Printing ID: ", req.user.id); 
+
         //get Id
         const id = req.user.id;
         //validation
-        const updateDetials = await User.findById(id);
+        const user = await User.findById({_id: id});
+        if (!user) {
+			return res.status(404).json({
+				success: false,
+				message: "User not found",
+			});
+		}
         //delete Profile
-        await Profile.findbyIdAndDelete({_id: userDetials});
+        await Profile.findbyIdAndDelete({_id: user.additionalDetails});
         //TODO:
         //delete User
         await User.findByIdAndDelete({_id: id});
         //return response
         return res.status(200).json({
             success: true,
-            message: 'Usee Deleted Successfully',
+            message: 'User Deleted Successfully',
         })
 
     } catch (error) {
@@ -75,7 +83,10 @@ exports.getAllUserDetials = async (req, res) => {
         //get id
         const id = req.user.id;
         //validation and get user detials
-        const userDetials = await User.findById(id).populate("additionalDetials").exec();
+        const userDetails = await User.findById(id)
+            .populate("additionalDetials")
+            .exec();
+        console.log(userDetails)
         //return response
         return res.status(200).json({
             success: true,

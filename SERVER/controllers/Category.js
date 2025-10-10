@@ -1,4 +1,4 @@
-const category = require("../models/category");
+const category = require("../models/category")
 
 
 //create Tag handler function
@@ -8,12 +8,11 @@ exports.createCategory = async (req, res) => {
         //fetch data
         const {name, description} = req.body;
         //validation
-        if(!name || !description){
-            return res.status(400).json({
-                success: false,
-                message: 'All fields are required',
-            })
-        }
+        if (!name) {
+			return res
+				.status(400)
+				.json({ success: false, message: "All fields are required" });
+		}
 
         //create entry in DB
         const categoryDetials = await category.create({
@@ -25,7 +24,7 @@ exports.createCategory = async (req, res) => {
         //return response
         return res.status(200).json({
             success: true,
-            message: "Tag Created Successfully",
+            message: "Categorys Created Successfully",
         })
 
     } catch (error) {
@@ -40,6 +39,7 @@ exports.createCategory = async (req, res) => {
 
 exports.showAllCategories = async (req, res) => {
     try {
+        console.log("Inside Show All Categories")
         const allCategories = await category.find({}, {name: true, description:true});
         res.status(200).json({
             success: true,
@@ -58,7 +58,7 @@ exports.showAllCategories = async (req, res) => {
 exports.categoryPageDetails = async (req, res) => {
     try {
         //get courseId
-        const {courseId} = req.body;
+        const {categoryId} = req.body;
 
         //get courses for specified categoryId
         const selectedCategory = await category.findById(categoryId)
