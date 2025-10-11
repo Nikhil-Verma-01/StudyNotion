@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link, matchPath, useLocation } from 'react-router-dom'
 import {NavbarLinks} from "./../../data/navbar-links"
 import {useSelector} from "react-redux"
-import logo from "../../assets/Logo"
+import logo from "../../assets/Logo/Logo-Full-Dark.png"
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import ProfileDropdown from '../core/Auth/ProfileDropdown'
 import { apiConnector } from '../../services/apiconnector'
-import { categories } from '../../services/api'
+import { categories } from '../../services/apis'
 import { IoIosArrowDown } from 'react-icons/io';
 
 const subLinks = [
@@ -40,6 +40,7 @@ const Navbar = () => {
   }
 
   useEffect(() => {
+    console.log("PRINTING TOKEN", token)
     fetchSublinks();
   }, []);
   
@@ -151,4 +152,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route
-          path="signup"
+          path="/signup"
           element={
             <OpenRoute>
               <Signup/>
@@ -24,7 +24,7 @@ function App() {
           }
         />
         <Route
-          path="login"
+          path="/login"
           element={
             <OpenRoute>
               <Login/>
@@ -32,7 +32,7 @@ function App() {
           }
         />
         <Route
-          path="forgot-password"
+          path="/forgot-password"
           element={
             <OpenRoute>
               <ForgotPassword/>
@@ -40,7 +40,7 @@ function App() {
           }
         />
         <Route
-          path="verify-email"
+          path="/verify-email"
           element={
             <OpenRoute>
               <VerifyEmail/>
@@ -48,7 +48,7 @@ function App() {
           }
         />
         <Route
-          path="update-password/:id"
+          path="/update-password/:id"
           element={
             <OpenRoute>
               <UpdatePassword/>

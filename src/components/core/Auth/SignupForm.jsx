@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { sendOtp } from "../../../services/operations/authAPI"
-import { setSignupData } from "../../../slices/authSlice"
+import { setSignupData } from "../../../slice/authSlice"
 import { ACCOUNT_TYPE } from "../../../utils/constant"
 import Tab from "../../common/Tab"
 
