@@ -28,11 +28,13 @@ const ProfileDropdown = () => {
       </div>
       {open && (
         <div className='absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md
-        border-[1px] border-richblack-700 bg-richblack-800' ref={ref}
+        border-[1px] border-richblack-700 bg-richblack-800'
+        ref={ref}
         onClick={(e) => e.stopPropagation()}>
           <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
             <div>
               <VscDashboard className='text-lg'/>
+              Dashboard
             </div>
           </Link>
 

@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import Cart from "./components/core/Dashboard/Cart";
 import { ACCOUNT_TYPE } from "./utils/constants";
+import AddCourse from "./components/core/Dashboard/AddCourse";
 
 function App() {
   const dispatch = useDispatch();
@@ -77,10 +78,18 @@ function App() {
             </OpenRoute>
           }
         />
-        <Route path="/contact" element={<Contact/>}/>
+        <Route
+          path="/contact"
+          element={
+            <OpenRoute>
+              <Contact />
+            </OpenRoute>
+          }
+        />
+
         
         <Route 
-      element={
+        element={
         <PrivateRoute>
           <Dashboard />
         </PrivateRoute>
@@ -95,6 +104,14 @@ function App() {
           <>
           <Route path="dashboard/cart" element={<Cart />} />
           <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
+          </>
+        )
+      }
+
+      {
+        user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+          <>
+            <Route path="dashboard/add-course" element={<AddCourse/>} />
           </>
         )
       }
