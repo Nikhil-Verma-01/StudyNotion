@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const mailSender = require("../utils/mailSender");
-const emailTemplate = require("../mail/templates/courseEnrollmentEmail")
+const emailTemplate = require("../mail/templates/emailVerificationTemplate");
 const otpSchema = new mongoose.Schema({
     email:{
         type:String,

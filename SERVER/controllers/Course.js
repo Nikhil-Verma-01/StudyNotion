@@ -1,5 +1,5 @@
 const Course = require("../models/Course");
-const Category = require("../models/category");
+const Category = require("../models/Category");
 const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
 // Function to create a new course
@@ -20,7 +20,7 @@ exports.createCourse = async (req, res) => {
 			instructions,
 		} = req.body;
 
-		// Get thumbnail image from request files
+		 //Get thumbnail image from request files
 		const thumbnail = req.files.thumbnailImage;
 
 		// Check if any of the required fields are missing
@@ -67,7 +67,7 @@ exports.createCourse = async (req, res) => {
 			process.env.FOLDER_NAME
 		);
 		console.log(thumbnailImage);
-		// Create a new course with the given details
+		 //Create a new course with the given details
 		const newCourse = await Course.create({
 			courseName,
 			courseDescription,
@@ -98,7 +98,7 @@ exports.createCourse = async (req, res) => {
 			{ _id: category },
 			{
 				$push: {
-					course: newCourse._id,
+					courses: newCourse._id,
 				},
 			},
 			{ new: true }
