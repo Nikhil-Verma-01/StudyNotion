@@ -28,7 +28,7 @@ router.post("/login", login)
 // Route for user signup
 router.post("/signup", signup)
 
-// Route for sending OTP to the user's email
+// Route for sending OTP to the user's email - REMOVED auth middleware
 router.post("/sendotp", sendotp)
 
 // Route for Changing the password

@@ -19,40 +19,50 @@ const ExploreMore = () => {
     const setMyCards = (value) => {
         setCurrentTab(value);
         const result = HomePageExplore.filter((course) => course.tag === value);
-        setCourses(result[0].courses);
-        setCurrentCard(result[0].courses[0].heading);
+
+        if(result.length > 0){
+            setCourses(result[0].courses);
+            setCurrentCard(result[0].courses[0].heading);
+
+        }
     }
 
   return (
     <div>
-        <div className='text-4xl font-semibold text-center text-white'>
+        
+        <div className='text-4xl font-semibold text-center my-10 text-white'>
             Unlock the
             <HighlightText text={"Power of Code"}/>
+            <p className='text-center text-richblack-300 text-lg font-semibold mt-1'>
+                Learn to build anything you can imagine
+            </p>
         </div>
 
-        <p className='text-center text-richblack-300 text-sm text-[16px] mt-3'>
-            Learn to build anything you can imagine
-        </p>
+     
 
-        <div className='mt-5 flex flex-row rounded-full bg-richblack-800 mb-5 border-richblack-100 px-1 py-1'>
-            {
-                tabsName.map((element, index) => {
-                    return(
-                        <div className={`text-[16px] flex flex-row items-center gap-2 hover:bg-richblack-900 hover:text-richblack-5
-                        ${currentTab === element ? "bg-richblack-900 text-richblack-5 font-medium"
-                        : "text-richblack-200"} rounded-full transition-all duration-200 cursor-pointer px-7 py-2`}
-                        key={index}
-                        onClick={() => setMyCards(element)}>
-                            {element}
-                        </div>
-                    )
-                })
-            }
+        {/* Tab Section */}
+        <div className="hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1 rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
+            {tabsName.map((ele, index) => {
+                return (
+                    <div
+                    className={` text-[16px] flex flex-row items-center gap-2 ${
+                        currentTab === ele
+                        ? "bg-richblack-900 text-richblack-5 font-medium"
+                        : "text-richblack-200"
+                    } px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
+                    key={index}
+                    onClick={() => setMyCards(ele)}
+                    >
+                    {ele}
+                    </div>
+                );
+            })}
         </div>
 
-        <div className='lg:h-[100px]'></div>
+        <div className='hidden lg:block lg:h-[200px]'></div>
         
-        <div>
+        {/* Card Section */}
+        <div className="lg:absolute gap-10 justify-center lg:gap-0 flex lg:justify-between flex-wrap w-full lg:bottom-[15] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-100%] text-black lg:mb-0 mb-7 lg:px-0 px-3">
             {
                 courses.map((element, index) => {
                     return(
@@ -63,7 +73,7 @@ const ExploreMore = () => {
                             setCurrentCard = {setCurrentCard}
 
                         />
-                    )
+                    );
                 })
             }
         </div>

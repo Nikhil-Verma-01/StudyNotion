@@ -158,7 +158,7 @@ const ContactUsForm = () => {
               cols="30" rows="7"
               placeholder='Enter your message here'
               className='text-black'
-              {...register("firstName", {required: true})}
+              {...register("message", {required: true})}
             />
             {
               errors.message && (

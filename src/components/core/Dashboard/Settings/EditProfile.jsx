@@ -7,10 +7,10 @@ import IconBtn from "../../../common/IconBtn"
 const genders = ["Male", "Female", "Non-Binary", "Perfer not to say", "Others"]
 
 const EditProfile = () => {
-  const {user} = useSelector((state) => state.profile);
-  const {token} = useSelector((state) => state.auth);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {token} = useSelector((state) => state.auth);
+  const {user} = useSelector((state) => state.profile);
+  const navigate = useNavigate();
 
   const {
     register,

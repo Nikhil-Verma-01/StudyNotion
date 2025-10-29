@@ -14,7 +14,7 @@ const UpdatePassword = () => {
     const [showNewPassword, setShowNewPassword] = useState();
 
     const {
-        register, handleSumbit, formState: {errors},
+        register, handleSubmit, formState: {errors},
     } = useForm();
 
     const submitPasswordForm= async (data) => {
@@ -26,7 +26,7 @@ const UpdatePassword = () => {
     }
   return (
     <>
-        <form onSubmit={handleSumbit(submitPasswordForm)}>
+        <form onSubmit={handleSubmit(submitPasswordForm)}>
             <div className='my-10 flex flex-col gap-y-6 rounded-md bordre-[1px] border-richblue-700 bg-richblack-800 p-8 px-12'>
                 <h2 className='text-lg font-semibold text-richblack-5'>Password</h2>
                 <div className='flex flex-col gap-5 lg:flex-row'>
@@ -40,7 +40,7 @@ const UpdatePassword = () => {
                             id='oldPassword'
                             placeholder='Enter Current Password'
                             className='form-style'
-                            {...register("olaPassword", {required: true})}
+                            {...register("oldPassword", {required: true})}
                         />
                         <span className='absolute right-3 top-[38px] z-[10] cursor-pointer'
                         onClick={() => setOldShowPassowrd((prev) => !prev)}>

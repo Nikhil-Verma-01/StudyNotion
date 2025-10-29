@@ -15,13 +15,13 @@ const {
 
 export function sendOtp(email, navigate){
     return async(dispatch) => {
-        const toastId = toast.loading("Loding...")
+        const toastId = toast.loading("Sending OTP...")
         dispatch(setLoading(true))
         try {
             const response = await apiConnector("POST", SENDOTP_API, {
                 email,
                 checkUserPresent: true,
-            })
+            });
             console.log("SENDOTP API RESPOSNE...........", response)
 
             console.log(response.data.success)

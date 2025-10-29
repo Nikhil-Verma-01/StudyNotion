@@ -8,16 +8,18 @@ exports.auth = async (req, res, next) => {
 
         console.log("BEFORE ToKEN EXTRACTION");
         //extract token
-        const token = req.cookies.token 
+         const token = req.cookies.token 
                         || req.body.token 
-                        || req.header("Authorisation").replace("Bearer ", "");
-        console.log("AFTER ToKEN EXTRACTION");
+                        || (req.header("Authorization") ? req.header("Authorization").replace("Bearer ", "") : null);
+        
+        console.log("AFTER TOKEN EXTRACTION");
+        console.log("Token:", token);
 
         //if token missing, then return response
         if(!token) {
             return res.status(401).json({
                 success:false,
-                message:'TOken is missing',
+                message:'Token is missing',
             });
         }
 
@@ -31,7 +33,7 @@ exports.auth = async (req, res, next) => {
             //verification - issue
             return res.status(401).json({
                 success:false,
-                message:'token is invalid',
+                message:'Token is invalid',
             });
         }
         next();

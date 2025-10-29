@@ -16,7 +16,7 @@ const RenderTotalAmount = () => {
 
         <IconBtn
             text="Buy Now"
-            onclick={handleBuyCourse}
+            onClick={handleBuyCourse}
             customerClasses={"w-full justify-center"}
         />
     </div>
