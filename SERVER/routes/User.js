@@ -28,8 +28,8 @@ router.post("/login", login)
 // Route for user signup
 router.post("/signup", signup)
 
-// Route for sending OTP to the user's email - REMOVED auth middleware
-router.post("/sendotp", sendotp)
+// Route for sending OTP to the user's email
+router.post("/sendotp", sendotp)  // NO AUTH MIDDLEWARE HERE!
 
 // Route for Changing the password
 router.post("/changepassword", auth, changePassword)
