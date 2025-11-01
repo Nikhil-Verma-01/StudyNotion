@@ -6,7 +6,7 @@ const userRoutes = require("./routes/User");
 const profileRoutes = require("./routes/Profile");
 const courseRoutes = require("./routes/Course");
 const paymentRoutes = require("./routes/Payment");
-const contactRoutes = require("./routes/Contact");
+const contactUsRoutes = require("./routes/Contact");
 
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -46,7 +46,7 @@ app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
-app.use("/api/v1/reach", contactRoutes);
+app.use("/api/v1/reach", contactUsRoutes);
 
 //default route
 app.get("/", (req, res) => {
@@ -56,19 +56,7 @@ app.get("/", (req, res) => {
     })
 })
 
-// Debug: Print registered routes
-console.log("Registered routes:");
-app._router.stack.forEach((r) => {
-  if (r.route) {
-    console.log(`${Object.keys(r.route.methods)} ${r.route.path}`)
-  } else if (r.name === 'router') {
-    r.handle.stack.forEach((handler) => {
-      if (handler.route) {
-        console.log(`${Object.keys(handler.route.methods)} ${handler.route.path}`)
-      }
-    })
-  }
-})
+
 
 app.listen(PORT, () => {
     console.log(`App is running at ${PORT}`)

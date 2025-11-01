@@ -107,6 +107,26 @@ StudyNotion follows a **client-server architecture**, with:
 
 ## 🧩 Folder Structure  
 
+StudyNotion/
+├── client/                # Frontend (React + Tailwind)
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── redux/
+│   │   └── utils/
+│   └── package.json
+│
+├── server/                # Backend (Node + Express)
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── middlewares/
+│   ├── utils/
+│   └── server.js
+│
+└── README.md
+ 
 
 
 ## 📈 Conclusion  
