@@ -138,4 +138,4 @@ It’s designed to deliver an engaging, personalized, and accessible learning ex
 
 ### 👨‍💻 Developed by: *Nikhil Verma*  
 > Project inspired by CodeHelp – EdTech Platform Clone  
-> Date: 17 Feb 2023  
+> Date: 17 Feb 2025  
